@@ -46,3 +46,5 @@ C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\ru\Xceed.Wp
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\TestApp.csproj.CopyComplete
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestCreation.g.cs
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestCreation.baml

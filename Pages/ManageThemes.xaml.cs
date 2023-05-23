@@ -150,7 +150,7 @@ namespace TestApp.Pages
 
         private void DeleteTheme_Click(object sender, RoutedEventArgs e)
         {
-            App.Set($"UPDATE Users SET Theme = 1 WHERE Theme = '{TempTheme.id}'");
+            App.Set($"UPDATE Users SET Theme = NULL WHERE Theme = '{TempTheme.id}'");
             App.Set($"DELETE FROM Themes WHERE id = '{TempTheme.id}'");
             App.GetThemes();
             App.Theme = 1;

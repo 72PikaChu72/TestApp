@@ -82,6 +82,9 @@
     <Compile Include="Pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TestCreation.xaml.cs">
+      <DependentUpon>TestCreation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Themes\Theme.cs" />
     <Compile Include="Classes\User.cs" />
     <Page Include="MainWindow.xaml">
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TestCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

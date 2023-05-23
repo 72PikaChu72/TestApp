@@ -105,13 +105,21 @@ namespace TestApp.Pages
                 result = App.Get($"Select FIO,PermissionLevel,Theme from Users WHERE login = '{LoginBox.Text}' and password = '{PasswordBox.Password}'");
                 App.UserFIO = result.Rows[0][0].ToString();
                 App.PermissionLevel = Convert.ToInt16(result.Rows[0][1]);
-                for(int i = 0; i < App.ThemeList.Count; i++)
+                try
                 {
-                    if (App.ThemeList[i].id == Convert.ToInt16(result.Rows[0][2]))
+                    for (int i = 0; i < App.ThemeList.Count; i++)
                     {
-                        App.Theme = i+1; break;
+                        if (App.ThemeList[i].id == Convert.ToInt16(result.Rows[0][2]))
+                        {
+                            App.Theme = i + 1; break;
+                        }
                     }
                 }
+                catch
+                {
+                    App.Theme = 1;
+                }
+                
             }
             catch
             {

@@ -144,7 +144,7 @@ namespace TestApp.Pages
             }
             try
             {
-                App.Set($"Insert Into [Users](FIO,Login,Password,Theme,PermissionLevel)Values('{FIO}','{Login}','{Password}','1','1')");
+                App.Set($"Insert Into [Users](FIO,Login,Password,Theme,PermissionLevel)Values('{FIO}','{Login}','{Password}','{App.ThemeList[0].id}','1')");
             }
             catch { return; }
             MessageBox.Show("Успешно зарегистрирован!");

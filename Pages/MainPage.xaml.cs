@@ -112,6 +112,7 @@ namespace TestApp.Pages
                 App.Theme = 1;
             }
             LoadTheme();
+            App.SetTheme();
         }
 
         private void ExitBtnClick(object sender, RoutedEventArgs e)
@@ -124,6 +125,16 @@ namespace TestApp.Pages
         private void TakeATestBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ManageUsersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ManageUsersPage());
+        }
+
+        private void ManageThemesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ManageThemes());
         }
     }
 }

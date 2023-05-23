@@ -1,0 +1,32 @@
+﻿<Page x:Class="TestApp.Pages.ManageThemes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
+      xmlns:local="clr-namespace:TestApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="ManageThemes">
+
+    <Grid Background="White" Name="MainGrid">
+        <ListBox x:Name="ThemesListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,95,0,78" HorizontalAlignment="Left" Width="257" SelectionChanged="ThemesListBox_SelectionChanged"/>
+        <TextBox x:Name="ThemesFinderBox" Grid.Row="0" Margin="55,55,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="" Height="35"  FontFamily="Bahnschrift SemiBold" TabIndex="0" HorizontalAlignment="Left" Width="212" VerticalAlignment="Top" TextChanged="ThemeFinderBox_TextChanged"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="⬅️" Margin="10,10,0,0" HorizontalAlignment="Left" Width="40"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="GoBackBtn_Click" Height="40" VerticalAlignment="Top"/>
+        <Label Content="Темы" Margin="55,12,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212"/>
+        <Label Content="🔍" Margin="10,54,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Создать тему" Margin="10,0,0,33" HorizontalAlignment="Left" Width="257"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateTheme_Click" Height="40" VerticalAlignment="Bottom"/>
+        <colorpicker:PortableColorPicker x:Name="BackgroundCP" Margin="462,128,0,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="284" ColorChanged="BackgroundCP_ColorChanged"/>
+        <TextBox x:Name="TempThemeName" Grid.Row="0" Margin="462,83,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="" Height="35"  FontFamily="Bahnschrift SemiBold" TabIndex="0" HorizontalAlignment="Left" Width="284" VerticalAlignment="Top" TextChanged="ThemeFinderBox_TextChanged"/>
+        <Label Content="Имя:" Margin="250,83,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212" Height="35"/>
+        <Label Content="Цвет фона:" Margin="272,128,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Height="35"/>
+        <Label Content="Цвет границ:" Margin="272,168,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Height="35"/>
+        <colorpicker:PortableColorPicker x:Name="BordersCP" Margin="462,168,0,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="284" ColorChanged="BordersCP_ColorChanged"/>
+        <Label Content="Цвет акцентов:" Margin="272,208,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Height="35"/>
+        <colorpicker:PortableColorPicker x:Name="BackgroundTwoCP" Margin="462,208,0,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="284" ColorChanged="BackgroundTwoCP_ColorChanged"/>
+        <Label Content="Главный цвет:" Margin="272,248,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Height="35"/>
+        <colorpicker:PortableColorPicker x:Name="MainCP" Margin="462,248,0,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="284" ColorChanged="MainCP_ColorChanged"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Сохранить тему" Margin="272,0,0,33"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="SaveThemeBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" Width="256"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить тему" Margin="533,0,0,33"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="DeleteTheme_Click" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="256"/>
+    </Grid>
+</Page>

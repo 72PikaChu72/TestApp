@@ -16,7 +16,7 @@
         <Button Name="ExitBtn" Content="Выход" Margin="126,420,126,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Height="40" FontSize="16" Background="#FF007ACC" Foreground="White" BorderThickness="0" Click="ExitBtnClick"/>
         <Button Name="CreateTestBtn" Content="Создать тест" Margin="126,205,126,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Height="40" FontSize="16" Background="#FF007ACC" Foreground="White" BorderThickness="0"/>
         <Button Name="TestResultsBtn" Content="Посмотреть результаты тестов" Margin="126,260,126,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Height="40" FontSize="16" Background="#FF007ACC" Foreground="White" BorderThickness="0"/>
-        <Button Name="ManageUsersBtn" Content="Управление пользователями" Margin="126,314,126,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Height="40" FontSize="16" Background="#FF007ACC" Foreground="White" BorderThickness="0"/>
-        <Button Name="ManageThemesBtn" Content="Управление темами" Margin="126,367,126,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Height="40" FontSize="16" Background="#FF007ACC" Foreground="White" BorderThickness="0"/>
+        <Button Name="ManageUsersBtn" Content="Управление пользователями" Margin="126,314,126,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Height="40" FontSize="16" Background="#FF007ACC" Foreground="White" BorderThickness="0" Click="ManageUsersBtn_Click"/>
+        <Button Name="ManageThemesBtn" Content="Управление темами" Margin="126,367,126,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Height="40" FontSize="16" Background="#FF007ACC" Foreground="White" BorderThickness="0" Click="ManageThemesBtn_Click"/>
     </Grid>
 </Page>

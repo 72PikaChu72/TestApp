@@ -9,6 +9,7 @@ namespace TestApp.Themes
 {
     public class Theme
     {
+        public int id { get; set; }
         public string Name { get; set; }
         public Color Background { get; set; }
         public Color Borders { get; set; }

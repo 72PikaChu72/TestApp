@@ -17,7 +17,7 @@ namespace TestApp
     public partial class App : Application
     {
         // Данные о сервере
-        public static SqlConnection Connection = new SqlConnection("ConnectionString");
+        public static SqlConnection Connection = new SqlConnection("server=PikaChu-PC\\PIKACHUSQL;Trusted_Connection=yes;database=TestAppDB");
 
         //Данные о пользователе
         public static string UserFIO;
@@ -26,7 +26,7 @@ namespace TestApp
         public static List<Theme> ThemeList = new List<Theme>();
         public static Theme GetCurrentTheme()
         {
-            return ThemeList[Theme - 1];
+            return ThemeList[Theme-1];
         }
         public static void GetThemes()
         {
@@ -35,6 +35,7 @@ namespace TestApp
             foreach (DataRow i in result.Rows) 
             {
                 Theme theme = new Theme() { 
+                    id = Convert.ToInt32(i[0]),
                     Name = i[1].ToString(),
                     Background = (Color)ColorConverter.ConvertFromString(i[2].ToString()),
                     Borders = (Color)ColorConverter.ConvertFromString(i[3].ToString()),
@@ -43,6 +44,10 @@ namespace TestApp
                 };
                 ThemeList.Add(theme);
             }
+        }
+        public static void SetTheme()
+        {
+            Set($"UPDATE [Users] SET Theme = '{ThemeList[Theme-1].id}' WHERE FIO = '{UserFIO}'");
         }
         public static DataTable Get(string Query)
         {

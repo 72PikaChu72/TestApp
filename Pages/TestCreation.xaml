@@ -5,10 +5,75 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="TestCreation">
 
-    <Grid Background="White" Name="MainGrid">
-        
+    <Grid x:Name="MainGrid" Background="White">
+        <Label Content="Вопросы" Margin="55,14,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="⬅️" Width="40" Margin="10,14,750,446" FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="GoBackBtn_Click" Height="40"/>
+        <ListBox x:Name="QuestionsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,95,0,72" HorizontalAlignment="Left" Width="257" SelectionChanged="QuestionsListBox_SelectionChanged"/>
+        <TextBox x:Name="QuestionsFinderBox" Grid.Row="0" Margin="55,55,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="" Height="35"  FontFamily="Bahnschrift SemiBold" TabIndex="0" HorizontalAlignment="Left" Width="212" VerticalAlignment="Top" TextChanged="QuestionsFinderBox_TextChanged"/>
+        <Label Content="🔍" Margin="10,54,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Создать Вопрос" Margin="10,0,0,27" HorizontalAlignment="Left" Width="257"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить вопрос" Margin="414,0,0,27" HorizontalAlignment="Left" Width="257"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
+        <Label Content="Новый Тест" Margin="300,13,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212"/>
+        <Grid HorizontalAlignment="Left" Height="257" Margin="272,94,0,0" VerticalAlignment="Top" Width="481" Name="TestGrid" Visibility="Hidden">
+            <TextBox x:Name="QuestionsFinderBox_Copy" Grid.Row="0" Margin="176,1,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="" Height="35"  FontFamily="Bahnschrift SemiBold" TabIndex="0" HorizontalAlignment="Left" Width="305" VerticalAlignment="Top" TextChanged="QuestionsFinderBox_TextChanged"/>
+            <Label Content="Название теста:" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176"/>
+            <Label Content="Описание теста:" Margin="0,41,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176"/>
+            <RichTextBox Margin="176,41,0,89">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <CheckBox Content="Показывать ответы после решения" FontFamily="Bahnschrift SemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="17" HorizontalAlignment="Left" Margin="176,173,0,0" VerticalAlignment="Top"/>
+            <CheckBox Content="Публичный" FontFamily="Bahnschrift SemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="17" HorizontalAlignment="Left" Margin="176,197,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="QuestionsFinderBox_Copy1" Grid.Row="0" Margin="176,221,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="" Height="35"  FontFamily="Bahnschrift SemiBold" TabIndex="0" HorizontalAlignment="Left" Width="305" VerticalAlignment="Top" TextChanged="QuestionsFinderBox_TextChanged"/>
+            <Label Content="Код для теста:" Margin="0,221,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Name="RadialQuestionGrid" Height="315" Margin="291,54,0,0" VerticalAlignment="Top" Width="462" Visibility="Hidden">
+            <Label Content="Текст вопроса:" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="157" Margin="0,4,0,0"/>
+            <RichTextBox Margin="157,0,0,228">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <GroupBox Header="Ответы" Margin="9,92,0,45"/>
+            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Добавить ответ" Margin="251,0,0,0" HorizontalAlignment="Left" Width="211"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
+            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить ответ" Margin="9,0,0,0" HorizontalAlignment="Left" Width="226"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Name="CheckBoxQuestionGrid" Height="315" Margin="291,54,0,0" VerticalAlignment="Top" Width="462" Visibility="Hidden">
+            <Label Content="Текст вопроса:" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="157" Margin="0,4,0,0"/>
+            <RichTextBox Margin="157,0,0,228">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <GroupBox Header="Ответы" Margin="9,92,0,45"/>
+            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Добавить ответ" Margin="251,0,0,0" HorizontalAlignment="Left" Width="211"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
+            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить ответ" Margin="9,0,0,0" HorizontalAlignment="Left" Width="226"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Name="TextQuestionGrid" Height="315" Margin="291,54,0,0" VerticalAlignment="Top" Width="462" Visibility="Hidden">
+            <Label Content="Текст вопроса:" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="157" Margin="0,4,0,0"/>
+            <RichTextBox Margin="157,0,0,228">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </Grid>
+
+
+
     </Grid>
 </Page>

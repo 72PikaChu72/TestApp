@@ -104,8 +104,34 @@ namespace TestApp.Pages
         {
             if (ThemesListBox.SelectedIndex == -1)
             {
+                NameLbl.Visibility = Visibility.Hidden;
+                TempThemeName.Visibility = Visibility.Hidden;
+                AccentColorLbl.Visibility = Visibility.Hidden;
+                BackColorLbl.Visibility = Visibility.Hidden;
+                BorderColorLbl.Visibility = Visibility.Hidden;
+                MainColorLbl.Visibility = Visibility.Hidden;
+                NameLbl.Visibility = Visibility.Hidden;
+                BackgroundCP.Visibility = Visibility.Hidden;
+                BackgroundTwoCP.Visibility = Visibility.Hidden;
+                BordersCP.Visibility = Visibility.Hidden;
+                MainCP.Visibility = Visibility.Hidden;
+                DeleteBtn.Visibility = Visibility.Hidden;
+                SaveBtn.Visibility = Visibility.Hidden;
                 return;
             }
+            NameLbl.Visibility = Visibility.Visible;
+            TempThemeName.Visibility = Visibility.Visible;
+            AccentColorLbl.Visibility = Visibility.Visible;
+            BackColorLbl.Visibility = Visibility.Visible;
+            BorderColorLbl.Visibility = Visibility.Visible;
+            MainColorLbl.Visibility = Visibility.Visible;
+            NameLbl.Visibility = Visibility.Visible;
+            BackgroundCP.Visibility = Visibility.Visible;
+            BackgroundTwoCP.Visibility = Visibility.Visible;
+            BordersCP.Visibility = Visibility.Visible;
+            MainCP.Visibility = Visibility.Visible;
+            DeleteBtn.Visibility = Visibility.Visible;
+            SaveBtn.Visibility = Visibility.Visible;
             string ndx = ThemesListBox.SelectedValue.ToString();
             for(int i = 0; i<App.ThemeList.Count; i++)
             {

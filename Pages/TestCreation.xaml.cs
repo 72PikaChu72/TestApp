@@ -24,5 +24,10 @@ namespace TestApp.Pages
         {
             InitializeComponent();
         }
+
+        private void CreateQuestion_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

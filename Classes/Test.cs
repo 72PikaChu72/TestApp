@@ -11,11 +11,14 @@ namespace TestApp.Classes
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int Type { get; set; }
-        public List<Question> Questions { get; set; }
+
+        public List<Question> Questions = new List<Question>();
         public bool ShowAnswers { get; set; }
         public bool IsPublic { get; set; }
-        public List<User> ForUsers { get; set; }
+
+        //TODO: (Maybe)
+        //public List<User> ForUsers { get; set; }
+
         public string Code { get; set; }
 
     }

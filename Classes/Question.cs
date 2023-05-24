@@ -14,19 +14,14 @@ namespace TestApp.Classes
     }
     public class RadialQuestion : Question
     {
-        public int CorrectAnswerIndex { get; set; }
-        public string[] Answers { get; set; }
+        public int CorrectAnswerIndex = 0;
+        public List<string> Answers = new List<string>();
 
     }
     public class CheckBoxQuestion : Question
     {
-        public int[] CorrectAnswersIndex { get; set; }
-        public string[] Answers { get; set; }
-
-    }
-    public class TextQuestionAnswerable : Question
-    {
-        public string CorrectAnswer { get; set; }
+        public List<int> CorrectAnswersIndex = new List<int>();
+        public List<string> Answers = new List<string>();
 
     }
     public class TextQuestion : Question

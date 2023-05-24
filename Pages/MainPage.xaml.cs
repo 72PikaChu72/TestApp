@@ -136,5 +136,10 @@ namespace TestApp.Pages
         {
             NavigationService.Navigate(new ManageThemes());
         }
+
+        private void CreateTestBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TestCreation());
+        }
     }
 }

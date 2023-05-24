@@ -70,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChooseQuestion.xaml.cs">
+      <DependentUpon>ChooseQuestion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Question.cs" />
     <Compile Include="Classes\Test.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
@@ -89,6 +92,10 @@
     </Compile>
     <Compile Include="Themes\Theme.cs" />
     <Compile Include="Classes\User.cs" />
+    <Page Include="ChooseQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

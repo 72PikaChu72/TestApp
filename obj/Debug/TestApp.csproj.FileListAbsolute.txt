@@ -48,3 +48,5 @@ C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\zh-Hans\Xce
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\TestApp.csproj.CopyComplete
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestCreation.g.cs
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestCreation.baml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\ChooseQuestion.g.cs
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\ChooseQuestion.baml

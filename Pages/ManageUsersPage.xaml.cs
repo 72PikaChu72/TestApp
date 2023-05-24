@@ -78,7 +78,7 @@ namespace TestApp.Pages
                     Login = a[1].ToString(),
                     Password = a[2].ToString(),
                     FIO = a[3].ToString(),
-                    UserTheme = Convert.ToInt32(a[4]),
+                    // UserTheme = Convert.ToInt32(a[4]),
                     PermissionLevel = Convert.ToInt32(a[5])
                 };
                 users.Add(user);
@@ -114,6 +114,12 @@ namespace TestApp.Pages
                             ((PasswordBox)b).Background = new SolidColorBrush(theme.BackgroundTwo);
                             ((PasswordBox)b).Foreground = new SolidColorBrush(theme.Main);
                             ((PasswordBox)b).BorderBrush = new SolidColorBrush(theme.Borders);
+                        }
+                        if (b is RichTextBox)
+                        {
+                            ((RichTextBox)b).Background = new SolidColorBrush(theme.BackgroundTwo);
+                            ((RichTextBox)b).Foreground = new SolidColorBrush(theme.Main);
+                            ((RichTextBox)b).BorderBrush = new SolidColorBrush(theme.Borders);
                         }
                     }
                 }

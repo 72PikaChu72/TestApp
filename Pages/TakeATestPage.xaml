@@ -1,0 +1,22 @@
+﻿<Page x:Class="TestApp.Pages.TakeATestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TakeATestPage">
+
+    <Grid Background="White" Name="MainGrid">
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="⬅️" Width="40" Margin="10,14,0,0" FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="GoBackBtn_Click" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="🌙" Margin="10,0,0,15" HorizontalAlignment="Left" Width="30"  FontFamily="Bahnschrift SemiBold" IsTabStop="False" Click="ThemeButton_Click" Height="30" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+        <ListBox x:Name="PublicTestsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="62,100,0,64" HorizontalAlignment="Left" Width="190"/>
+        <Label Content="Публичные тесты" Margin="62,66,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Height="29"/>
+        <TextBox x:Name="TestCodeBox" Grid.Row="0" Margin="364,220,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="" Height="36"  FontFamily="Bahnschrift SemiBold" TabIndex="0" HorizontalAlignment="Left" Width="314" VerticalAlignment="Top"/>
+        <Label Content="Код теста" Margin="426,179,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="▶️" Width="40" Margin="683,220,0,0" FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="TakeATestByCode_Click" Height="36" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Пройти тест" Margin="364,20,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="▶️" Width="190" Margin="62,0,0,23" FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="TakeAPublicTest" HorizontalAlignment="Left" Height="36" VerticalAlignment="Bottom"/>
+    </Grid>
+</Page>

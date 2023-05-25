@@ -102,7 +102,7 @@ namespace TestApp.Pages
             DataTable result = new DataTable();
             try
             {
-                result = App.Get($"Select FIO,PermissionLevel,Theme from Users WHERE login = '{LoginBox.Text}' and password = '{PasswordBox.Password}'");
+                result = App.Get($"Select FIO,PermissionLevel,Theme,id from Users WHERE login = '{LoginBox.Text}' and password = '{PasswordBox.Password}'");
                 App.UserFIO = result.Rows[0][0].ToString();
                 App.PermissionLevel = Convert.ToInt16(result.Rows[0][1]);
                 try
@@ -114,6 +114,7 @@ namespace TestApp.Pages
                             App.Theme = i + 1; break;
                         }
                     }
+                    App.UserId = Convert.ToInt32(result.Rows[0][3]);
                 }
                 catch
                 {

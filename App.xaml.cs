@@ -20,6 +20,7 @@ namespace TestApp
         public static SqlConnection Connection = new SqlConnection("server=PikaChu-PC\\PIKACHUSQL;Trusted_Connection=yes;database=TestAppDB");
 
         //Данные о пользователе
+        public static int UserId;
         public static string UserFIO;
         public static int PermissionLevel;
         public static int Theme = 1;

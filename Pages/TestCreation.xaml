@@ -13,7 +13,7 @@
         <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="⬅️" Width="40" Margin="10,14,0,0" FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="GoBackBtn_Click" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <ListBox x:Name="QuestionsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,59,0,72" HorizontalAlignment="Left" Width="257" SelectionChanged="QuestionsListBox_SelectionChanged"/>
         <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Создать Вопрос" Margin="10,0,0,27" HorizontalAlignment="Left" Width="257"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
-        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить вопрос" Margin="272,0,0,27"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" HorizontalAlignment="Left" Width="240" Height="40" VerticalAlignment="Bottom"/>
+        <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить вопрос" Margin="272,0,0,27"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="DeleteQuestion_Click" HorizontalAlignment="Left" Width="240" Height="40" VerticalAlignment="Bottom"/>
         <Label Content="Новый Тест" Margin="300,13,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212"/>
         <Label Name="QuestionTextLbl" Content="Текст вопроса:" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="159" Margin="300,74,0,0" Height="35" Visibility="Hidden"/>
         <RichTextBox x:Name="QuestionTextTextBox" Margin="464,71,0,343" Visibility="Hidden" TextChanged="QuestionTextTextBox_TextChanged">
@@ -47,12 +47,11 @@
             <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить ответ" Margin="9,0,0,0" HorizontalAlignment="Left" Width="226"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="RemoveRadialAnswer_Click" Height="40" VerticalAlignment="Bottom"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Name="CheckBoxQuestionGrid" Height="315" Margin="291,54,0,0" VerticalAlignment="Top" Width="462" Visibility="Hidden">
-            <GroupBox Header="Ответы" Margin="9,92,0,45"/>
-            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Добавить ответ" Margin="251,0,0,0" HorizontalAlignment="Left" Width="211"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
-            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить ответ" Margin="9,0,0,0" HorizontalAlignment="Left" Width="226"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateQuestion_Click" Height="40" VerticalAlignment="Bottom"/>
-
+            <StackPanel Name="CheckBoxAnswers" Margin="9,92,0,45"/>
+            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Добавить ответ" Margin="251,0,0,0" HorizontalAlignment="Left" Width="211"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="CreateCheckBoxAnswer_Click" Height="40" VerticalAlignment="Bottom"/>
+            <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Удалить ответ" Margin="9,0,0,0" HorizontalAlignment="Left" Width="226"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="RemoveCheckBoxAnswer_Click" Height="40" VerticalAlignment="Bottom"/>
         </Grid>
 
-        <Button Name="SaveTestBtn" Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Опубликовать" Margin="522,0,0,27"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="SaveTestBtn_Click" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="267"/>
+        <Button Name="SaveTestBtn" Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Опубликовать тест" Margin="522,0,0,27"  FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="SaveTestBtn_Click" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="267"/>
     </Grid>
 </Page>

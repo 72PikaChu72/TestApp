@@ -9,8 +9,10 @@ namespace TestApp.Classes
     public class Test
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+
+        public string Name = "";
+
+        public string Description = "";
 
         public List<Question> Questions = new List<Question>();
         public bool ShowAnswers { get; set; }

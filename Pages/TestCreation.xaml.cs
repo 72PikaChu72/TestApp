@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -169,8 +171,18 @@ namespace TestApp.Pages
             {
                 Code += Dict[random.Next(0, Dict.Length - 1)];
             }
-            TestCodeTextBox.Text = Code;
-            //TODO: Проверка на уникальность кода
+            DataTable Count = App.Get($"SELECT COUNT(*) AS Count FROM Tests WHERE Code = '{Code}'");
+            if (Convert.ToInt32(Count.Rows[0][0]) == 0)
+            {
+                TestCodeTextBox.Text = Code;
+            }
+            else
+            {
+                TestGrid_Initialized(sender, e);
+                return;
+            }
+            
+            
         }
         private bool CheckTestProperties()
         {
@@ -179,7 +191,12 @@ namespace TestApp.Pages
                 MessageBox.Show("Заполните название и код теста");
                 return false;
             }
-            //TODO: Проверка на уникальность кода
+            DataTable Count = App.Get($"SELECT COUNT(*) AS Count FROM Tests WHERE Code = '{TestCodeTextBox.Text}'");
+            if (Convert.ToInt32(Count.Rows[0][0]) != 0)
+            {
+                MessageBox.Show("Тест с таким кодом уже существует!");
+                return false;
+            }
             NewTest.Code = TestCodeTextBox.Text;
             NewTest.Description = TestDescriptionBox.Text;
             NewTest.Name = TestNameBox.Text;
@@ -222,7 +239,7 @@ namespace TestApp.Pages
             }
             catch(System.NullReferenceException)
             {
-                MessageBox.Show("Словил ошибку");
+                MessageBox.Show("???");
             }
             CurrentQuestion = NewTest.Questions[QuestionsListBox.SelectedIndex];
             if (CurrentQuestion is TextQuestion) 
@@ -257,11 +274,18 @@ namespace TestApp.Pages
 
         private void SaveTestBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            string json = JsonConvert.SerializeObject(NewTest);
+            App.Set($"INSERT INTO Tests (Name,Description,ShowAnswers,IsPublic,Code,json) VALUES ('{NewTest.Name}','{NewTest.Description}','{NewTest.ShowAnswers}','{NewTest.IsPublic}','{NewTest.Code}','{json}')");
+            MessageBox.Show("Тест опубликован!");
+            NavigationService.Navigate(new MainPage());
         }
 
         private void RemoveRadialAnswer_Click(object sender, RoutedEventArgs e)
         {
+            if (((RadialQuestion)CurrentQuestion).Answers.Count <= 0)
+            {
+                return;
+            }
             ((RadialQuestion)CurrentQuestion).Answers.RemoveAt(((RadialQuestion)CurrentQuestion).Answers.Count-1);
             RadialAnswers.Children.Clear();
             foreach (string a in ((RadialQuestion)CurrentQuestion).Answers)
@@ -305,23 +329,21 @@ namespace TestApp.Pages
         }
         private void RadioTextChanged(object sender, RoutedEventArgs e)
         {
+            ((RadialQuestion)CurrentQuestion).Answers.Clear();
             foreach (WrapPanel a in RadialAnswers.Children)
             {
                 foreach (var txt in a.Children)
                 {
                     if (txt is TextBox)
                     {
-                        if (((TextBox)txt).Text != ((TextBox)sender).Text)
-                        {
-                            ((RadialQuestion)CurrentQuestion).Answers[RadialAnswers.Children.IndexOf(a)] = ((TextBox)txt).Text;
-                        }
+                        ((RadialQuestion)CurrentQuestion).Answers.Add(((TextBox)txt).Text);
                     }
                 }
             }
         }
         private void CreateRadialAnswer_Click(object sender, RoutedEventArgs e)
         {
-            ((RadialQuestion)CurrentQuestion).Answers.Add("Новый вопрос");
+            ((RadialQuestion)CurrentQuestion).Answers.Add("Введите вариант ответа");
             RadialAnswers.Children.Clear();
             foreach (string a in ((RadialQuestion)CurrentQuestion).Answers)
             {
@@ -347,12 +369,19 @@ namespace TestApp.Pages
 
         private void TestNameBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            NewTest.Name = TestNameBox.Text;
+            if(!(TestNameBox is null))
+            {
+                NewTest.Name = TestNameBox.Text;
+            }
         }
 
         private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            NewTest.Description = TestDescriptionBox.Text;
+            if (!(TestDescriptionBox is null))
+            {
+                NewTest.Description = TestDescriptionBox.Text;
+            }
+            
         }
 
         private void ShowAnswersCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -362,7 +391,90 @@ namespace TestApp.Pages
 
         private void TestCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            NewTest.Code = TestCodeTextBox.Text;
+            if(!(TestCodeTextBox is null))
+            {
+                NewTest.Code = TestCodeTextBox.Text;
+            }
+           
+        }
+        private void CheckBoxAnswer_Checked(object sender, RoutedEventArgs e)
+        {
+            ((CheckBoxQuestion)CurrentQuestion).CorrectAnswersIndex.Clear();
+            foreach (WrapPanel a in CheckBoxAnswers.Children)
+            {
+                foreach (var btn in a.Children)
+                {
+                    if (btn is CheckBox)
+                    {
+                        if ((bool)((CheckBox)btn).IsChecked)
+                        {
+                            ((CheckBoxQuestion)CurrentQuestion).CorrectAnswersIndex.Add(CheckBoxAnswers.Children.IndexOf(a));
+                        }
+                    }
+                }
+            }
+        }
+        private void CheckBoxAnswerTextChanged(object sender, RoutedEventArgs e)
+        {
+            ((CheckBoxQuestion)CurrentQuestion).Answers.Clear();
+            foreach (WrapPanel a in CheckBoxAnswers.Children)
+            {
+                foreach (var txt in a.Children)
+                {
+                    if (txt is TextBox)
+                    {
+                        ((CheckBoxQuestion)CurrentQuestion).Answers.Add(((TextBox)txt).Text);
+                    }
+                }
+            }
+        }
+        private void CreateCheckBoxAnswer_Click(object sender, RoutedEventArgs e)
+        {
+            ((CheckBoxQuestion)CurrentQuestion).Answers.Add("Введите вариант ответа");
+            CheckBoxAnswers.Children.Clear();
+            foreach (string a in ((CheckBoxQuestion)CurrentQuestion).Answers)
+            {
+                WrapPanel wrap = new WrapPanel();
+                CheckBox checkBox = new CheckBox() { Content = ((CheckBoxQuestion)CurrentQuestion).Answers.IndexOf(a), IsChecked = ((CheckBoxQuestion)CurrentQuestion).CorrectAnswersIndex.Contains(CheckBoxAnswers.Children.Count), Width = 15 };
+                checkBox.Click += CheckBoxAnswer_Checked;
+                wrap.Children.Add(checkBox);
+
+                TextBox text = new TextBox { Text = a, Width = 300 };
+                text.TextChanged += CheckBoxAnswerTextChanged;
+                wrap.Children.Add(text);
+                CheckBoxAnswers.Children.Add(wrap);
+            }
+        }
+
+        private void RemoveCheckBoxAnswer_Click(object sender, RoutedEventArgs e)
+        {
+            if (((CheckBoxQuestion)CurrentQuestion).Answers.Count <= 0)
+            {
+                return;
+            }
+            ((CheckBoxQuestion)CurrentQuestion).Answers.RemoveAt(((CheckBoxQuestion)CurrentQuestion).Answers.Count - 1);
+            CheckBoxAnswers.Children.Clear();
+            foreach (string a in ((CheckBoxQuestion)CurrentQuestion).Answers)
+            {
+                WrapPanel wrap = new WrapPanel();
+                CheckBox checkBox = new CheckBox() { Content = ((CheckBoxQuestion)CurrentQuestion).Answers.IndexOf(a), IsChecked = ((CheckBoxQuestion)CurrentQuestion).CorrectAnswersIndex.Contains(CheckBoxAnswers.Children.Count), Width = 15 };
+                checkBox.Click += CheckBoxAnswer_Checked;
+                wrap.Children.Add(checkBox);
+
+                TextBox text = new TextBox { Text = a, Width = 300 };
+                text.TextChanged += CheckBoxAnswerTextChanged;
+                wrap.Children.Add(text);
+                CheckBoxAnswers.Children.Add(wrap);
+            }
+        }
+
+        private void DeleteQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            if(QuestionsListBox.SelectedIndex != -1)
+            {
+                NewTest.Questions.RemoveAt(QuestionsListBox.SelectedIndex);
+                UpdateQuestionsList();
+            }
         }
     }
 }

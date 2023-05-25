@@ -50,3 +50,11 @@ C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestC
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestCreation.baml
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\ChooseQuestion.g.cs
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\ChooseQuestion.baml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TakeATestPage.g.cs
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TakeATestPage.baml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestPage.g.cs
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestPage.baml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\MyResultsPage.g.cs
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\MyResultsPage.baml

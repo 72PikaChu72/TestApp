@@ -124,7 +124,7 @@ namespace TestApp.Pages
 
         private void TakeATestBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new TakeATestPage());
         }
 
         private void ManageUsersBtn_Click(object sender, RoutedEventArgs e)
@@ -140,6 +140,11 @@ namespace TestApp.Pages
         private void CreateTestBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TestCreation());
+        }
+
+        private void MyResultsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MyResultsPage());
         }
     }
 }

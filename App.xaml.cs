@@ -17,7 +17,8 @@ namespace TestApp
     public partial class App : Application
     {
         // Данные о сервере
-        public static SqlConnection Connection = new SqlConnection("server=PikaChu-PC\\PIKACHUSQL;Trusted_Connection=yes;database=TestAppDB");
+        //"server=***;Trusted_Connection=yes;database=TestAppDB"
+        public static SqlConnection Connection = new SqlConnection("***ВОТ СЮДА***");
 
         //Данные о пользователе
         public static int UserId;

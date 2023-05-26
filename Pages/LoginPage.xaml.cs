@@ -105,6 +105,7 @@ namespace TestApp.Pages
                 result = App.Get($"Select FIO,PermissionLevel,Theme,id from Users WHERE login = '{LoginBox.Text}' and password = '{PasswordBox.Password}'");
                 App.UserFIO = result.Rows[0][0].ToString();
                 App.PermissionLevel = Convert.ToInt16(result.Rows[0][1]);
+                App.UserId = Convert.ToInt32(result.Rows[0][3]);
                 try
                 {
                     for (int i = 0; i < App.ThemeList.Count; i++)
@@ -114,7 +115,6 @@ namespace TestApp.Pages
                             App.Theme = i + 1; break;
                         }
                     }
-                    App.UserId = Convert.ToInt32(result.Rows[0][3]);
                 }
                 catch
                 {
@@ -128,6 +128,7 @@ namespace TestApp.Pages
                 App.UserFIO = null;
                 App.PermissionLevel = 0;
                 App.Theme = 1;
+                App.UserId = 0;
                 return;
             }
 

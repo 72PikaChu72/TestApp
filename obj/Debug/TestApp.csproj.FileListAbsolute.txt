@@ -58,3 +58,5 @@ C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestP
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestPage.baml
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\MyResultsPage.g.cs
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\MyResultsPage.baml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestResultsPage.g.cs
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestResultsPage.baml

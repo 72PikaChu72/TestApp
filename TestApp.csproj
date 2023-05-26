@@ -104,6 +104,9 @@
     <Compile Include="Pages\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TestResultsPage.xaml.cs">
+      <DependentUpon>TestResultsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Themes\Theme.cs" />
     <Compile Include="Classes\User.cs" />
     <Page Include="ChooseQuestion.xaml">
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TestResultsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -146,5 +146,10 @@ namespace TestApp.Pages
         {
             NavigationService.Navigate(new MyResultsPage());
         }
+
+        private void TestResultsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TestResultsPage());
+        }
     }
 }

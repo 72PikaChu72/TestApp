@@ -8,9 +8,9 @@
         Title="Вид Вопроса" Height="300" Width="550">
     <Grid Name="MainGrid">
         <Label Content="Выберите вид вопроса" Margin="0,42,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Width="441"/>
-        <StackPanel Margin="10,78,10,67">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Height="93" Width="520" Name="MainGridTwo">
-                <Button Content="Текстовый" Width="120" Margin="5" Click="TextButton_Click" FontFamily="Bahnschrift SemiBold" FontSize="22"/>
+        <StackPanel Margin="0,78,0,67">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Height="93" Width="522" Name="MainGridTwo">
+                <Button Content="Текстовый" Width="120" Margin="5" Click="TextButton_Click" FontFamily="Bahnschrift SemiBold" FontSize="25"/>
                 <Button Content="1 ответ" Width="120" Margin="5" Click="OneButton_Click" FontFamily="Bahnschrift SemiBold" FontSize="25"/>
                 <Button Content="Несколько ответов"  Width="120" Margin="5" Click="ManyButton_Click" FontFamily="Bahnschrift SemiBold" FontSize="12"/>
                 <Button Content="Отмена" Width="120" Margin="5" Click="CancelButton_Click" FontFamily="Bahnschrift SemiBold" FontSize="22"/>

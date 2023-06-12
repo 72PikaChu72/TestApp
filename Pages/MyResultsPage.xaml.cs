@@ -37,6 +37,8 @@ namespace TestApp.Pages
             }
             double PersentDb = sum/ count;
             Persent.Content = PersentDb+"%";
+            result = App.Get($"SELECT Tests.Name as 'Название теста' , Answers.Persentage as 'Процент правильных ответов', Answers.CorrectAnswers as 'Правильные ответы', Answers.[Date] as 'Дата прохождения' FROM Answers JOIN Tests ON Tests.id = Answers.TestId WHERE UserId = '{App.UserId}'");
+            MyResultsDataGrid.ItemsSource = result.DefaultView;
         }
         public void LoadTheme()
         {

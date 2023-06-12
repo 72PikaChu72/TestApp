@@ -18,7 +18,7 @@ namespace TestApp
     {
         // Данные о сервере
         //"server=***;Trusted_Connection=yes;database=TestAppDB"
-        public static SqlConnection Connection = new SqlConnection("***ВОТ СЮДА***");
+        public static SqlConnection Connection = new SqlConnection("server=PikaChu-PC\\PIKACHUSQL;Trusted_Connection=yes;database=TestAppDB");
 
         //Данные о пользователе
         public static int UserId;

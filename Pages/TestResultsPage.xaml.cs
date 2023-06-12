@@ -161,10 +161,10 @@ namespace TestApp.Pages
 
         private void UsersListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            TestInfoGrid.Visibility = Visibility.Hidden;
+            UserInfoGrid.Visibility = Visibility.Hidden;
             if (UsersListBox.SelectedIndex == -1)
             {
-                TestInfoGrid.Visibility = Visibility.Hidden;
-                UserInfoGrid.Visibility = Visibility.Hidden;
                 return;
             }
             if (TypeBtn.Content.ToString() == "Тесты")
@@ -173,13 +173,22 @@ namespace TestApp.Pages
                 TestAnswersCount.Content = App.Get($"Select Count(*) From Answers Where TestId = '{tests[UsersListBox.SelectedIndex].Id}'").Rows[0][0].ToString();
                 TestAnswersAvg.Content = App.Get($"SELECT ROUND(AVG(Persentage),2) AS average_value FROM Answers Where TestId = '{tests[UsersListBox.SelectedIndex].Id}'").Rows[0][0].ToString()+"%";
                 TestCodeLbl.Content = tests[UsersListBox.SelectedIndex].Code;
+                DataTable result = App.Get($"SELECT Users.FIO as 'ФИО' , Answers.Persentage as 'Процент правильных ответов', Answers.CorrectAnswers as 'Правильные ответы', Answers.[Date] as 'Дата прохождения' FROM Answers Join Users ON Users.id = Answers.UserId WHERE Answers.TestId = '{tests[UsersListBox.SelectedIndex].Id}'");
+                TestInfoDataGrid.ItemsSource = result.DefaultView;
             }
             else
             {
                 UserInfoGrid.Visibility = Visibility.Visible;
                 UserAnswersCount.Content = App.Get($"Select Count(*) From Answers Where UserId = '{users[UsersListBox.SelectedIndex].Id}'").Rows[0][0].ToString();
                 UserAnswersAvg.Content = App.Get($"SELECT ROUND(AVG(Persentage),2) AS average_value FROM Answers Where UserId = '{users[UsersListBox.SelectedIndex].Id}'").Rows[0][0].ToString() + "%";
+                DataTable result = App.Get($"SELECT Tests.Name as 'Название теста' , Answers.Persentage as 'Процент правильных ответов', Answers.CorrectAnswers as 'Правильные ответы', Answers.[Date] as 'Дата прохождения' FROM Answers JOIN Tests ON Tests.id = Answers.TestId WHERE UserId = '{users[UsersListBox.SelectedIndex].Id}'");
+                UserInfoDataGrid.ItemsSource = result.DefaultView;
             }
+
+        }
+
+        private void ExportUsersToExcel_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

@@ -66,14 +66,14 @@ namespace TestApp.Pages
                 i++;
                 return;
             }
-            int CorrectAnswersCount=0;
+            int CorrectAnswersCount = 0;
             int TotalAnswersCount = 0;
+            string AnswerString = "";
             for(int i = 0;i<CurrentTest.Questions.Count; i++)
             {
                 if (CurrentTest.Questions[i] is TextQuestion)
                 {
-                    TotalAnswersCount++;
-                    CorrectAnswersCount++;
+                    AnswerString += Answers[i].TextAnswer + "@";
                 }
                 if(CurrentTest.Questions[i] is RadialQuestion)
                 {
@@ -82,6 +82,7 @@ namespace TestApp.Pages
                     {
                         CorrectAnswersCount++;
                     }
+                    AnswerString += ((RadialQuestion)CurrentTest.Questions[i]).Answers[Answers[i].answers[0]]+"@";
                 }
                 if (CurrentTest.Questions[i] is CheckBoxQuestion)
                 {
@@ -90,16 +91,18 @@ namespace TestApp.Pages
                         if (((CheckBoxQuestion)CurrentTest.Questions[i]).CorrectAnswersIndex.Contains(Answer)){
                             CorrectAnswersCount++;
                         }
+                        AnswerString += ((CheckBoxQuestion)CurrentTest.Questions[i]).Answers[Answer]+",";
                     }
                     foreach (int x in ((CheckBoxQuestion)CurrentTest.Questions[i]).CorrectAnswersIndex)
                     {
                         TotalAnswersCount++;
                     }
+                    AnswerString += "@";
                 }
             }
             double percentage = (double)CorrectAnswersCount / TotalAnswersCount * 100;
             MessageBox.Show($"Тест окончен!\nПравильных ответов - {CorrectAnswersCount} из {TotalAnswersCount}\n{Math.Round(percentage,2)}%");
-            App.Set($"INSERT INTO Answers (TestId, UserId, Persentage, CorrectAnswers) VALUES ('{CurrentTest.Id}', '{App.UserId}', '{Math.Round(percentage, 2)}', '{CorrectAnswersCount}/{TotalAnswersCount}')");
+            App.Set($"INSERT INTO Answers (TestId, UserId, Persentage, CorrectAnswers, Date, Answers) VALUES ('{CurrentTest.Id}', '{App.UserId}', '{Math.Round(percentage, 2).ToString().Replace(',','.')}', '{CorrectAnswersCount}/{TotalAnswersCount}', '{DateTime.Now}','{AnswerString}')");
             NavigationService.Navigate(new MainPage());
         }
         public TestPage(string Code)

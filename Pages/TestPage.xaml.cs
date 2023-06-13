@@ -97,6 +97,7 @@ namespace TestApp.Pages
                     {
                         TotalAnswersCount++;
                     }
+                    AnswerString = AnswerString.Remove(AnswerString.Length - 1, 1);
                     AnswerString += "@";
                 }
             }

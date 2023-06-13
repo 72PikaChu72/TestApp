@@ -60,3 +60,9 @@ C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\MyRes
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\MyResultsPage.baml
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestResultsPage.g.cs
 C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\obj\Debug\Pages\TestResultsPage.baml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\EPPlus.dll
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\EPPlus.xml
+C:\Users\PikaChu\Desktop\Юлия Смирнова\TestApp\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml

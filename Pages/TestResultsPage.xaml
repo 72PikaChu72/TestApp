@@ -15,7 +15,7 @@
         <TextBox x:Name="UserFinderBox" Grid.Row="0" Margin="55,55,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="" Height="35"  FontFamily="Bahnschrift SemiBold" TabIndex="0" HorizontalAlignment="Left" Width="212" VerticalAlignment="Top" TextChanged="UserFinderBox_TextChanged"/>
         <Label Content="🔍" Margin="10,54,0,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
         <Button Name="TypeBtn" Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="Тесты" Width="212" Margin="55,10,0,0" FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="ChangeType_Click" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Grid Name="TestInfoGrid" Margin="281,12,45,56" Visibility="Visible">
+        <Grid Name="TestInfoGrid" Margin="281,12,45,56" Visibility="Hidden">
             <Label Content="Прохождений теста:" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="224"/>
             <Label Content="Средний результат:" Margin="0,41,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="224"/>
             <Label x:Name="TestAnswersCount" Content="" Margin="229,0,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="235"/>

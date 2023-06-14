@@ -12,10 +12,10 @@
         <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="⬅️" Width="40" Margin="10,14,0,0" FontFamily="Bahnschrift SemiBold" FontSize="22" IsTabStop="False" Click="GoBackBtn_Click" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Background="#FF007ACC" Foreground="White" BorderThickness="0" Content="🌙" Margin="10,0,0,15" HorizontalAlignment="Left" Width="30"  FontFamily="Bahnschrift SemiBold" IsTabStop="False" Click="ThemeButton_Click" Height="30" VerticalAlignment="Bottom"/>
         <Label Content="Мои результаты" Margin="55,37,55,0" HorizontalContentAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top"/>
-        <Label Content="Тестов пройдено:" Margin="135,84,336,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top"/>
-        <Label Name="TestCount" Content="" Margin="469,84,146,0" HorizontalContentAlignment="Left" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top"/>
-        <Label Content="Средний процент выполнения:" Margin="51,125,336,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top"/>
-        <Label x:Name="Persent" Content="" Margin="469,125,147,0" HorizontalContentAlignment="Left" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top"/>
+        <Label Content="Тестов пройдено:" Margin="135,84,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="329"/>
+        <Label Name="TestCount" Content="" Margin="469,84,0,0" HorizontalContentAlignment="Left" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="185"/>
+        <Label Content="Средний процент выполнения:" Margin="51,125,0,0" HorizontalContentAlignment="Right" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="413"/>
+        <Label x:Name="Persent" Content="" Margin="469,125,0,0" HorizontalContentAlignment="Left" FontFamily="Bahnschrift SemiBold" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="184"/>
         <DataGrid Name="MyResultsDataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,166,0,61"/>
 
     </Grid>
